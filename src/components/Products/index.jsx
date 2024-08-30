@@ -3,16 +3,17 @@ import Image from "next/image";
 import Link from "next/link";
 const Product = ({ api }) => {
   return (
-    <div className="flex flex-wrap justify-center p-5 gap-5 mx-28">
+    <div className="flex flex-wrap justify-center gap-5 mx-28">
       {api.products.map((data) => {
         return (
-          <div className="border-2 rounded-xl min-w-40 p-2" key={data.id}>
+          <div className="border-2 rounded-xl min-w-40 bg-slate-100 p-2" key={data.id}>
             <Link href={`products/${data.id}`}>
               <Image
                 src={data.images[0]}
                 width={200}
                 height={200}
-                className="w-full max-h-36 object-cover"
+                className="max-w-40 max-h-32 object-cover"
+                alt={data.title}
               />
               <div className=" p-3">
                 <p className="text-sm font-bold">{data.title.split(" ").slice(0, 2).join(" ")}</p>
