@@ -1,19 +1,21 @@
 import Product from "@/components/Products";
 import { getProductApi } from "../libs/api";
 import Navbar from "@/components/Utilities/Navbar";
-import Carousel from "@/components/Utilities/Carousel";
 import Category from "@/components/Category";
+import CarouselView from "@/components/Utilities/Carousel";
 export default async function Home() {
-  const all_products = await getProductApi('products','limit=6');
+  const all_products = await getProductApi('products','limit=10');
   const all_categories = await getProductApi('products/category-list');
-  // console.log(all_categories)
+  const get_category = await getProductApi('products/category/beauty');
+  // console.log(get_category)
   return (
-    <div>
+    <div className="w-full">
       <Navbar />
-      <hr/>
-      <Carousel/>
+      <div className="mx-20">
+      <CarouselView/>
       <Category api={all_categories} />
       <Product api={all_products} />
+      </div>
     </div>
     
   );
