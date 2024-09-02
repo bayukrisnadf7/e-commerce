@@ -4,12 +4,10 @@ import Navbar from "@/components/Utilities/Navbar";
 import Category from "@/components/Category";
 import CarouselView from "@/components/Utilities/Carousel";
 export default async function Home() {
-  const all_products = await getProductApi('products','limit=10');
+  const all_products = await getProductApi('products','limit=24');
   const all_categories = await getProductApi('products/category-list');
-  const get_category = await getProductApi('products/category/beauty');
-  // console.log(get_category)
   return (
-    <div className="w-full">
+    <div className="w-full mb-5">
       <Navbar />
       <div className="mx-20">
       <CarouselView/>
