@@ -1,15 +1,27 @@
+"use client";
 import { CiSearch } from "react-icons/ci";
-
+import { useRef } from "react";
+import { useRouter } from "next/navigation";
 const InputSearch = () => {
+  const searchReff = useRef();
+  const router = useRouter();
+  const handleSearch = (event) => {
+    event.preventDefault();
+    const keyword = searchReff.current.value;
+    router.push(`/search/${keyword}`);
+  };
   return (
-    <div className="relative">
+    <form onSubmit={handleSearch}>
+      <div className="relative">
         <input
           type="text"
           placeholder="Search...."
+          ref={searchReff}
           className="border text-sm p-2 rounded-lg w-96"
         />
-        <CiSearch size={27} className="absolute right-2 top-1/4"/>
-    </div>
+        <CiSearch size={27} className="absolute right-2 top-1/4" />
+      </div>
+    </form>
   );
 };
 export default InputSearch;
