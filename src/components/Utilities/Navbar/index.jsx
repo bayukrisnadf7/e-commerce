@@ -9,10 +9,7 @@ const Navbar = () => {
           {" "}
           <h1 className="font-bold text-green-600">Martpedia</h1>{" "}
         </Link>
-        <div className="flex items-center gap-3">
-        <p className="text-sm">Category</p>
         <InputSearch />
-        </div>
         <div className="flex gap-3">
           <button className="border text-green-600 border-green-600 text-sm p-2 rounded-lg font-bold w-24">
             Masuk
