@@ -4,7 +4,7 @@ import InputSearch from "./InputSearch";
 const Navbar = () => {
   return (
     <div className="w-full">
-      <div className="text-3xl mx-8 bg-white h-16  flex items-center justify-between">
+      <div className="text-3xl mx-20 bg-white h-16  flex items-center justify-between">
         <Link href="/">
           {" "}
           <h1 className="font-bold text-green-600">Martpedia</h1>{" "}

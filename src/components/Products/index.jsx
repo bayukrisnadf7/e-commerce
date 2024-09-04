@@ -9,7 +9,7 @@ const Product = ({ api, title }) => {
           {title}
         </h1>
         <hr />
-        <div className="grid md:grid-cols-6 sm:grid-cols-3 grid-cols-2 gap-5 mt-3 p-2">
+        <div className="grid md:grid-cols-5 sm:grid-cols-3 grid-cols-2 gap-5 mt-3 p-2">
           {api.products.map((data) => {
             return (
               <div
@@ -24,7 +24,7 @@ const Product = ({ api, title }) => {
                     className="images max-w-40 max-h-32 object-cover"
                     alt={data.title}
                   />
-                  <div className="mt-2">
+                  <div className="mt-2 mx-3">
                     <p className="text-sm font-bold">
                       {data.title.split(" ").slice(0, 2).join(" ")}
                     </p>

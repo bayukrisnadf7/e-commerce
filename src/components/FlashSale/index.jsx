@@ -50,18 +50,16 @@ const FlashSale = ({ api }) => {
   },[])
   return (
     <div className="border mt-5 mb-5 capitalize p-1 rounded-lg">
-      <div className="flex">
-        <div className="flex items-center">
-          <h1 className="p-3 text-lg font-bold flex items-center text-green-600">
+        <div className="flex items-center justify-between">
+          <h1 className="p-2 font-bold flex items-center text-green-600">
             F<AiFillThunderbolt size={20} />
             ASH SALE
           </h1>
           <p className="text-sm font-bold p-2 rounded-xl  text-red-600">{timer}</p>
         </div>
-      </div>
       <hr />
       {/* <Carousel> */}
-      <div className="flex justify-center gap-5 p-3">
+      <div className="grid grid-cols-6 justify-center gap-5 p-3">
         {api.products.map((data) => (
           <div
             className="relative border-2 rounded-xl min-w-40 bg-slate-50 flex justify-center p-3"
@@ -75,7 +73,7 @@ const FlashSale = ({ api }) => {
                 className="images max-w-40 max-h-32 object-cover"
                 alt={data.title}
               />
-              <div className="mt-2">
+              <div className="mt-2 mx-3">
                 <p className="text-sm font-bold">
                   {data.title.split(" ").slice(0, 2).join(" ")}
                 </p>
