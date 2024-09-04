@@ -5,19 +5,22 @@ import Category from "@/components/Category";
 import CarouselView from "@/components/Utilities/Carousel";
 import FlashSale from "@/components/FlashSale";
 export default async function Home() {
-  const allProducts = await getProductApi('products','limit=6');
-  const flashSaleProduct = await getProductApi('products', 'limit=6')
-  const allCategories = await getProductApi('products/category-list');
+  const allProducts = await getProductApi("products", "limit=10");
+  const flashSaleProduct = await getProductApi("products", "limit=6");
+  const allCategories = await getProductApi("products/category-list");
   return (
-    <div className="w-full mb-5">
+    <>
       <Navbar />
-      <div className="mx-20">
-      <CarouselView/> 
-      <FlashSale api={flashSaleProduct} />
-      <Category api={allCategories} />
-      <Product api={allProducts} title={"Recom Products"} />
+      <CarouselView />
+      <div className="flex mb-5 mx-20 gap-5">
+        <div className="w-1/4">
+          <Category api={allCategories} link={"category"} />
+        </div>
+        <div className="w-3/2">
+          <FlashSale api={flashSaleProduct} />
+          <Product api={allProducts} title={"Recom Products"} />
+        </div>
       </div>
-    </div>
-    
+    </>
   );
 }
