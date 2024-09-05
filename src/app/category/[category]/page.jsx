@@ -19,16 +19,16 @@ const Page = async ({ params }) => {
         <div className="w-1/4">
           <Category api={allCategories} link={"../category"} />
         </div>
-        <div className="w-3/4 border mt-5">
+        <div className="w-3/4 border mt-5 rounded-xl">
           <div className="">
             <p className="p-3 font-bold text-green-600">{`Categori ${category}`}</p>
             <hr />
           </div>
-          <div className="grid grid-cols-5 p-3 gap-5 h-full">
+          <div className="grid grid-cols-5 p-3 gap-5">
           {getCategoryProduct.products.map((data) => {
             return (
               <div
-                className="border-2 rounded-xl min-w-40 bg-slate-50 flex justify-center p-3"
+                className="border-2 rounded-xl bg-slate-50 flex justify-center p-3"
                 key={data.id}
               >
                 <Link href={`../products/${data.id}`}>

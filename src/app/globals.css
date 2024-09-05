@@ -29,3 +29,8 @@
 .images:hover {
   scale: 1.08;
 }
+/* Customize slick arrows */
+.slick-prev:before, .slick-next:before {
+  color: blue; /* Change arrow color */
+}
+

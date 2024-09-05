@@ -15,18 +15,18 @@ const Page = async ({ params }) => {
     <>
       <Navbar />
       <hr />
-      <div className="flex mx-16 mt-5 gap-5 mb-5">
+      <div className="flex md:flex-row flex-col md:mx-16 mt-5 gap-5 mb-5">
         {/* left content start */}
-        <div className="w-4/5">
-          <div className="flex shadow-lg border p-3 rounded-xl">
+        <div className="md:w-4/5">
+          <div className="flex md:flex-row flex-col shadow-lg border p-3 rounded-xl">
             {/* image start */}
-            <div className="flex flex-col w-1/2">
+            <div className="flex flex-col md:w-1/2">
               <Image
                 src={detailProduct.images[0]}
                 alt={detailProduct.title}
                 width={300}
                 height={300}
-                className="object-cover border rounded-xl "
+                className="md:w-72 w-full object-cover border rounded-xl "
               />
               <div className="flex gap-3 mt-5">
                 <Image
@@ -55,7 +55,7 @@ const Page = async ({ params }) => {
             {/* image end */}
 
             {/* description start */}
-            <div className="flex flex-col w-full">
+            <div className="flex flex-col w-full md:mt-0 mt-3">
               <h1 className="text-3xl font-bold">{detailProduct.title}</h1>
               <div className="flex gap-3 text-sm mt-2">
                 <p>{`Selling total : 8k+`}</p>
@@ -166,7 +166,7 @@ const Page = async ({ params }) => {
         {/* left content end */}
 
         {/* right content start */}
-        <div className="w-1/5">
+        <div className="md:w-1/5">
           <div className="shadow-xl border rounded-lg p-3">
             <h1>Chart</h1>
             <div className="flex justify-between border border-green-600 text-lg p-2 rounded-lg mt-2">
