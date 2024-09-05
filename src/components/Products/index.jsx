@@ -4,7 +4,7 @@ import Link from "next/link";
 const Product = ({ api, title }) => {
   return (
     <>
-      <div className="border p-1 rounded-xl">
+      <div className="border p-1 rounded-xl mt-5">
         <h1 className="p-2 font-bold flex items-center text-green-600">
           {title}
         </h1>

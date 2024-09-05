@@ -12,12 +12,12 @@ const InputSearch = () => {
   };
   return (
     <form onSubmit={handleSearch}>
-      <div className="relative">
+      <div className="relative md:mx-64">
         <input
           type="text"
           placeholder="Search...."
           ref={searchReff}
-          className="border text-sm p-2 rounded-lg w-96"
+          className="border text-sm p-2 rounded-lg md:w-96"
         />
         <CiSearch size={27} className="absolute right-2 top-1/4" />
       </div>
