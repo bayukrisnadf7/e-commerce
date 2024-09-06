@@ -95,7 +95,7 @@ const FlashSale = ({ api }) => {
           F<AiFillThunderbolt size={20} />
           ASH SALE
         </h1>
-        <p className="text-sm font-bold p-2 rounded-xl text-red-600">
+        <p className="text-sm font-bold p-1 bg-red-600 text-white rounded-xl ">
           {timer}
         </p>
       </div>
@@ -105,7 +105,7 @@ const FlashSale = ({ api }) => {
         <Slider {...settings}>
           {api.products.map((data) => (
             <div
-              className="relative border-2 rounded-xl md:max-w-52 max-w-36 md:max-h-56 max-h-48 bg-slate-50 flex md:p-5 p-1 md:mx-10 mx-2"
+              className="relative border-2 rounded-xl md:max-w-52 max-w-36 md:max-h-56 max-h-48 bg-slate-50 flex  p-1 md:mx-10 mx-2"
               key={data.id}
             >
               <Link href={`products/${data.id}`}>
