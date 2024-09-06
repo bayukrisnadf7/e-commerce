@@ -4,7 +4,7 @@ const Category = ({ api, link }) => {
     <div className="border mt-5 mb-5 capitalize p-1 rounded-lg">
       <h1 className="p-2 font-bold text-green-600">Category</h1>
       <hr />
-      <div className="flex flex-col mt-2 gap-2 mx-3">
+      <div className="grid md:grid-cols-1 grid-cols-3 mt-2 gap-2 mx-3">
         {api?.map((data) => {
           return (
             <Link href={`${link}/${data}`} key={data}>
