@@ -5,9 +5,11 @@ const Product = ({ api, title }) => {
   return (
     <>
       <div className="border p-1 rounded-xl mt-5">
+        <div className="mx-3">
         <h1 className="p-2 font-bold flex items-center text-green-600">
           {title}
         </h1>
+        </div>
         <hr />
         <div className="grid md:grid-cols-5 sm:grid-cols-3 grid-cols-2 gap-5 mt-3 p-2">
           {api.products.map((data) => {
