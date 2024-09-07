@@ -4,6 +4,7 @@ import Navbar from "@/components/Utilities/Navbar";
 import Category from "@/components/Category";
 import CarouselView from "@/components/Utilities/Carousel";
 import FlashSale from "@/components/FlashSale";
+import Footer from "@/components/Utilities/Footer";
 export default async function Home() {
   const allProducts = await getProductApi("products", "limit=10");
   const flashSaleProduct = await getProductApi("products", "limit=10");
@@ -21,6 +22,7 @@ export default async function Home() {
           <Product api={allProducts} title={"Cosmetics Product"} />
         </div>
       </div>
+      <Footer />
     </>
   );
 }

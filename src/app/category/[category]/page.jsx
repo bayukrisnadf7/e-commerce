@@ -15,16 +15,16 @@ const Page = async ({ params }) => {
     <>
       <Navbar />
       <CarouselView />
-      <div className="flex mb-5 mx-20 gap-5">
-        <div className="w-1/4">
+      <div className="md:flex mb-5 md:mx-20 gap-5">
+        <div className="md:w-1/4">
           <Category api={allCategories} link={"../category"} />
         </div>
-        <div className="w-3/4 border mt-5 rounded-xl">
+        <div className="md:w-3/4 w-full border mt-5 rounded-xl">
           <div className="">
             <p className="p-3 font-bold text-green-600">{`Categori ${category}`}</p>
             <hr />
           </div>
-          <div className="grid grid-cols-5 p-3 gap-5">
+          <div className="grid md:grid-cols-5 grid-cols-2 p-3 gap-5">
           {getCategoryProduct.products.map((data) => {
             return (
               <div

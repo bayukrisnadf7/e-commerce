@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import { MdOutlineTimer } from "react-icons/md";
 const FlashSale = ({ api }) => {
   const Ref = useRef(null);
   const [timer, setTimer] = useState("24:00:00");
@@ -53,14 +54,36 @@ const FlashSale = ({ api }) => {
   useEffect(() => {
     clearTime(getDeathTime());
   }, []);
+  function SampleNextArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={className}
+        style={{ ...style, display: "block", background: "green", right: 0, width: "30px", height: "30px", borderRadius: "50%", display: "flex", justifyContent: "center", alignItems: "center" }}
+        onClick={onClick}
+      />
+    );
+  }
+  function SamplePrevArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={className}
+        style={{ ...style, display: "block", background: "green", left: 0, width: "30px", height: "30px", borderRadius: "50%", display: "flex", justifyContent: "center", alignItems: "center" }}
+        onClick={onClick}
+      />
+    );
+  }
   var settings = {
     dots: true,
     infinite: true,
     speed: 100,
-    slidesToShow: 4,  
+    slidesToShow: 5,  
     slidesToScroll: 3,
     autoplay:true,
     dots: false,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
     responsive: [
       {
         breakpoint: 1024,
@@ -89,23 +112,24 @@ const FlashSale = ({ api }) => {
     ]
   };
   return (
-    <div className="border mt-5 capitalize p-1 rounded-lg max-w-full">
-      <div className="flex items-center justify-between">
+    <div className="border mt-5 capitalize p-1 rounded-lg">
+      <div className="flex items-center justify-between mx-3">
         <h1 className="p-2 font-bold flex items-center text-green-600">
           F<AiFillThunderbolt size={20} />
           ASH SALE
         </h1>
-        <p className="text-sm font-bold p-1 bg-red-600 text-white rounded-xl ">
+        <p className="text-sm font-bold p-1 bg-red-600 text-white rounded-xl flex gap-2 ">
+          <MdOutlineTimer size={20} />
           {timer}
         </p>
       </div>
       <hr />
       {/* <Carousel> */}
-      <div className="md:p-5 p-4">
+      <div className="p-4 w-full">
         <Slider {...settings}>
           {api.products.map((data) => (
             <div
-              className="relative border-2 rounded-xl md:max-w-52 max-w-36 md:max-h-56 max-h-48 bg-slate-50 flex  p-1 md:mx-10 mx-2"
+              className="relative border-2 rounded-xl md:max-w-44 max-w-36 max-h-full bg-slate-50 flex justifyp-1 "
               key={data.id}
             >
               <Link href={`products/${data.id}`}>
@@ -113,10 +137,10 @@ const FlashSale = ({ api }) => {
                   src={data.images[0]}
                   width={250}
                   height={250}
-                  className="images md:max-w-40 md:max-h-24 max-h-24 object-cover"
+                  className="images md:max-w-40 max-w-32 max-h-32 object-cover"
                   alt={data.title}
                 />
-                <div className="mt-3 mx-4">
+                <div className="mt-3 md:mx-4 mx-2">
                   <p className="md:text-sm text-xs font-bold">
                     {data.title.split(" ").slice(0, 2).join(" ")}
                   </p>
