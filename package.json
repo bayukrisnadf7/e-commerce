@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@material-tailwind/react": "^2.1.9",
+    "@prisma/client": "^5.19.1",
     "flowbite-react": "^0.10.1",
     "next": "14.2.7",
     "preline": "^2.4.1",
@@ -21,6 +22,7 @@
   },
   "devDependencies": {
     "postcss": "^8",
+    "prisma": "^5.19.1",
     "tailwindcss": "^3.4.1"
   }
 }
