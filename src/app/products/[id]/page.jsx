@@ -15,7 +15,7 @@ const Page = async ({ params }) => {
     <>
       <Navbar />
       <hr />
-      <div className="flex md:flex-row flex-col md:mx-16 mt-5 gap-5 mb-5">
+      <div className="flex md:flex-row flex-col md:mx-16 mx-3 mt-5 gap-5 mb-5">
         {/* left content start */}
         <div className="md:w-4/5">
           <div className="flex md:flex-row flex-col shadow-lg border p-3 rounded-xl">

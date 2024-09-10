@@ -4,6 +4,7 @@ export async function POST(request){
   try {
     const data = await request.json();
     const { email, password } = data;
+    if(!email || !password) return NextResponse.json({status:400, message:"All fields are required"});
     const createDataRegister = await prisma.user.create({
       data: {
         email,
