@@ -69,7 +69,7 @@ const FlashSale = ({ api }) => {
     return (
       <div
         className={className}
-        style={{ ...style, display: "block", background: "green", left: 0, width: "30px", height: "30px", borderRadius: "50%", display: "flex", justifyContent: "center", alignItems: "center" }}
+        style={{ ...style, display: "block", background: "red", left: 0, width: "30px", height: "30px", borderRadius: "50%", display: "flex", justifyContent: "center", alignItems: "center" }}
         onClick={onClick}
       />
     );

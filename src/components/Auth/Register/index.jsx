@@ -7,12 +7,10 @@ import { useState } from "react";
 const RegisterPage = () => {
   const [dataRegister, setDataRegister] = useState({
     email: "",
-    username: "",
-    address: "",
-    gender: "",
     password: "",
   });
-
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
   const handleInput = (event) => {
     setDataRegister({
       ...dataRegister,
@@ -22,21 +20,27 @@ const RegisterPage = () => {
 
   const handleData = async (event) => {
     event.preventDefault(); // Prevent the default form submission
-
-    // Sending request to the correct API route
-    const response = await fetch("api/register", {
-      method: "POST",
-      body: JSON.stringify(dataRegister),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-
-    const result = await response.json();
-    if (result.status === 200) {
-      window.location.href = "./login"; // Redirect on success
-    } else {
-      alert(result.message); // Show an error message
+    setLoading(true);
+    setError("");
+    try {
+      const response = await fetch("/api/users/register", {
+        method: "POST",
+        body: JSON.stringify(dataRegister),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const result = await response.json();
+      if (result.status === 200) {
+        alert("Registration successful");
+        window.location.href = "./login"; // Redirect on success
+      } else {
+        setError(result.message || "Registration failed");
+      }
+    } catch (error) {
+      setError("Registration failed");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -56,34 +60,14 @@ const RegisterPage = () => {
             REGISTER
           </h1>
           <p className="text-sm">Please enter your details</p>
-          <form onSubmit={handleData}>
+          <form onSubmit={handleData} className="flex flex-col gap-5">
             <input
               type="text"
               placeholder="johndoe@example"
               name="email"
               onChange={handleInput}
               className="border-2 border-transparent hover:border-green-600 rounded-xl"
-            />
-            <input
-              type="text"
-              placeholder="username"
-              name="username"
-              onChange={handleInput}
-              className="border-2 border-transparent hover:border-green-600 rounded-xl"
-            />
-            <input
-              type="text"
-              placeholder="address"
-              name="address"
-              onChange={handleInput}
-              className="border-2 border-transparent hover:border-green-600 rounded-xl"
-            />
-            <input
-              type="text"
-              placeholder="gender"
-              name="gender"
-              onChange={handleInput}
-              className="border-2 border-transparent hover:border-green-600 rounded-xl"
+              required
             />
             <input
               type="password"
@@ -91,10 +75,12 @@ const RegisterPage = () => {
               name="password"
               onChange={handleInput}
               className="border-2 border-transparent hover:border-green-600 rounded-xl"
+              required
             />
             <button
               type="submit"
               className="bg-green-600 text-white rounded-xl p-2"
+              disabled={loading}
             >
               Register
             </button>

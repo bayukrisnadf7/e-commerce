@@ -62,16 +62,16 @@ const Header = () => {
       <hr />
       {/* Mobile menu for Masuk and Daftar */}
       {menuOpen && (
-        <div className="flex flex-col items-center md:hidden mt-4 gap-3 mb-3">
+        <div className="flex flex-col items-center md:hidden mt-4 gap-3 mb-3 mx-4">
           <button
             onClick={handleLogin}
-            className="border text-green-600 border-green-600 text-sm p-2 rounded-lg font-bold w-24"
+            className="border text-green-600 border-green-600 text-sm p-2 rounded-lg font-bold w-full"
           >
             Masuk
           </button>
           <button
             onClick={handleRegister}
-            className="bg-green-600 text-sm text-white p-2 rounded-lg font-bold w-24"
+            className="bg-green-600 text-sm text-white p-2 rounded-lg font-bold w-full"
           >
             Daftar
           </button>
