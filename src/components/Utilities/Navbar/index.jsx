@@ -24,7 +24,7 @@ const Header = () => {
 
   return (
     <div className="w-full">
-      <div className="text-3xl md:mx-20 bg-white h-16 flex items-center md:items-center md:flex-row mx-2">
+      <div className="text-3xl md:mx-20 bg-white h-16 flex items-center md:items-center md:flex-row">
         <Link href="/">
           <h1 className="font-bold text-green-600 md:text-2xl text-xl">
             Martpedia

@@ -19,7 +19,7 @@ const Category = ({ api, link }) => {
         </div>
       </div>
       <hr />
-      <div className="mt-2 mx-3 md:block hidden">
+      <div className="mt-2 mx-3 md:flex hidden md:flex-col md:gap-1">
         {api?.map((data) => {
           return (
             <Link href={`${link}/${data}`} key={data}>

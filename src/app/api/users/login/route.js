@@ -9,6 +9,7 @@ export async function POST(request) {
         const user = await prisma.user.findFirst({
             where:{
                 email,
+                password
             }
         });
         if(!user) return NextResponse.json({status:400, message:"User not found"});
